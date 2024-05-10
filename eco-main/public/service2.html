@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service page</title>
+    <link rel="stylesheet" href="css/services.css">
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy@1.1.1/dist/webcam-easy.min.js"></script> 
+    <style>
+      a{
+        padding: 10px;
+        background-color: orange;
+        color: white;
+        text-decoration: none;
+        
+      }
+    </style>
+</head>
+
+<div id="servicesBg">
+<body>
+    <video id="webCam" autoplay playsinline width="800" height="600"></video>
+    <canvas id="canvas"></canvas>
+    <a download>SNAP</a>
+    
+    <section id="two">
+        <h1 id="ourservices">Our Services</h1>
+        <div class="service-card1">
+          <div class="top-image"><img src="map.svg" alt="map logo" srcset=""></div>
+          <h2>Drop-snap</h2>
+          <p>Click picture of your waste and post it here.</p>
+          <button class="know-more open-button" id="know-more" onclick="javascript:window.open('ImageUpload.html','_blank')" formtarget="_blank" type="submit">Click here</button>
+          <h5 class="confirm" id="checkauth">Please sign-in to use our services</h5>
+          
+        </div>
+        <div class="service-card">
+          <div class="top-image"><img src="local_shipping.svg" alt=""></div>
+          <h2>Locate-yourself</h2>
+          <p>Enter your location from where waste is to be collected</p>
+          <button class="know-more" id="know-more1" onclick="javascript:window.open('pickup.html','_blank')" formtarget="_blank" type="submit">Click here</button>
+          <h5 class="confirm" id="checkauth1">Please sign-in to use our services</h5>
+          <h5 class="confirm">You can schedule pickup once in a day.</h5>
+        </div>
+        <div class="form-popup" id="myForm">
+          <form action="/action_page.php" class="form-container">
+            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1wVQMAyyhIRm5XApdWf5GN7o9JAAKS0lR" width="580px" height="480" allowfullscreen="allowfullscreen"></iframe>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+        </div>
+      </section>
+      <script>
+        const webCamElement = document.getElementById("webCam");
+        const canvasElement = document.getElementById("canvas");
+        const webcam = new webCam(webCamElement,"user",canvasElement);
+        webcam.start();
+      </script>
+</body>
+</div>
+
+</html>
